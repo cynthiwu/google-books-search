@@ -10,9 +10,9 @@ function SearchContainer() {
     <React.Fragment>
         <SearchForm /> 
         
-            <main role="main" className="container">
+            <main role="main" className="container" id="search">
                 <section className="row">
-                    <div className="col-xs-12 col-sm-8 col-md-12 p-4 about-me">
+                    <div className="results col-12">
                         <h2>Results</h2>
                         <hr/>
                         <SearchCard />

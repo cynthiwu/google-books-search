@@ -5,12 +5,13 @@ function Search() {
 
   return (
   
-    <form> 
-        <div className="form-group">
-            <label for="exampleInputEmail1">Book Search</label>
-            <input type="text" class="form-control" id="book-search"  placeholder="Enter book title" />
-        </div>
-        <button type="submit" class="btn btn-primary">Search</button>
+    <form className="form"> 
+        <label className="form-title">Book Search</label>
+            <div className="form-inline">
+                <input type="text" className="form-control" id="book-search"  placeholder="Enter book title" />
+                <button type="submit" className="btn btn-primary font-weight-bold">Search</button>
+            </div>
+        
     </form> 
     )
     

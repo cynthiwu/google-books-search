@@ -11,7 +11,7 @@ function SavedContainer() {
             <main role="main" className="container">
                 <section className="row">
                     <div className="col-xs-12 col-sm-8 col-md-12 p-4 about-me">
-                        <h2>Results</h2>
+                        <h2>Saved Books</h2>
                         <hr/>
                         <SavedCard />
                     </div>

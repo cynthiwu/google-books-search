@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom;"
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom;"
 import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
 import SearchContainer from "./components/SearchContainer";
@@ -11,23 +11,23 @@ import NoMatch from "./components/NoMatch";
 
 function App() {
   return (
-    <Router>
+    // <Router>
       <React.Fragment>
         <Navbar />
         <Jumbotron />
-        <Switch>
-          <Route exact path={["/", "/search"]}>
+        {/* <Switch> */}
+          {/* <Route exact path={["/", "/search"]}> */}
             <SearchContainer />
-          </Route>
-          <Route exact path="/saved">
+          {/* </Route> */}
+          {/* <Route exact path="/saved"> */}
             <SavedContainer />
-          </Route>
-          <Route>
-            <NoMatch />
-          </Route>
-        </Switch>
+          {/* </Route> */}
+          {/* <Route> */}
+            {/* <NoMatch /> */}
+          {/* </Route> */}
+        {/* </Switch> */}
       </React.Fragment>
-    </Router>
+    // </Router>
   )
 }
 

@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+// import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 
 function Navbar() {
 
-const location = useLocation();
+// const location = useLocation();
 
   return (
   
@@ -18,8 +18,12 @@ const location = useLocation();
                 </span>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
-                    <li><Link to="/search" className={location.pathname === "/search" ? "nav-link active" : "nav-link"}>Search</Link></li>
-                    <li className="nav-link"><Link to="/saved" className={location.pathname === "/search" ? "nav-link active" : "nav-link"}>Saved</Link></li>
+                    <li className="nav-link ml-3"> Search
+                        {/* <Link to="/search" className={location.pathname === "/search" ? "nav-link active" : "nav-link"}>Search</Link> */}
+                    </li> 
+                    <li className="nav-link ml-1"> Saved
+                        {/* <Link to="/saved" className={location.pathname === "/search" ? "nav-link active" : "nav-link"}>Saved</Link> */}
+                    </li>
                 </div>
             </div>
         </nav>

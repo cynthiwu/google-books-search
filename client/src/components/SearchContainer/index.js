@@ -1,35 +1,43 @@
 import React from "react";
+import { useState } from "react";
 import "./style.css";
 import SearchForm from "../SearchForm";
 import SearchCard from "../SearchCard";
-import SearchContext from "../../utils/SearchContext";
+import SearchContext from "../../utils/searchContext";
+import API from "../../utils/API";
 
 
 function SearchContainer() {
 
     const [query, setQuery] = useState("");
-    const [result, setResult] = useState([]);
+    const [result, setResult] = useState();
 
     function handleSearch(event) {
         event.preventDefault();
 
         let query = event.target.search.value;
-        
-        if (formObject.title && formObject.author) {
-          API.saveBook({
-            title: formObject.title,
-            author: formObject.author,
-            synopsis: formObject.synopsis
-          })
-            .then(res => loadBooks())
-            .catch(err => console.log(err));
-        }
+
+        // Why doesn't this work????
+        // API.getBooks(query).then((res) => {
+        //     return res.json();
+        // })
+
+        fetch(`https://www.googleapis.com/books/v1/volumes?q=title:${query}`)
+        .then((res) => {
+            return res.json();
+        }).then((res) => {
+
+            console.log(res);
+            setResult(res.items);
+            console.log(result);
+
+        }).catch(err => console.log(err));
       };
 
   return (
     
     <React.Fragment>
-        <SearchForm /> 
+        <SearchForm handleSearch={ handleSearch }/> 
         
             <main role="main" className="container" id="search">
                 <section className="row">

@@ -3,7 +3,7 @@ import React from "react";
 const SearchContext = React.createContext({
   // query: "",
   searchResult: [],
-  handleBtnClick: () => {}
+  handleSearch: () => {}
 });
 
 export default SearchContext;

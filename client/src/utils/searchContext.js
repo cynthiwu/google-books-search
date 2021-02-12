@@ -1,7 +1,7 @@
 import React from "react";
 
 const SearchContext = React.createContext({
-  query: "",
+  // query: "",
   searchResult: [],
   handleBtnClick: () => {}
 });

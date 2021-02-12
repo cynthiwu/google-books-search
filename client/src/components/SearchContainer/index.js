@@ -9,16 +9,17 @@ import API from "../../utils/API";
 
 function SearchContainer() {
 
-    const [query, setQuery] = useState("");
+    // const [query, setQuery] = useState("");
     const [result, setResult] = useState();
 
     function handleSearch(event) {
         event.preventDefault();
 
         let query = event.target.search.value;
+        console.log(query)
 
         // Why doesn't this work????
-        // API.getBooks(query).then((res) => {
+        // API.searchBooks(query).then((res) => {
         //     return res.json();
         // })
 

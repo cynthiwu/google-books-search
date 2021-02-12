@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
 
   // Serach for books with Google Books API
-  getBook: function(query) {
+  searchBooks: function(query) {
     return axios.get(`https://www.googleapis.com/books/v1/volumes?q=title:${query}`).then(result => console.log(result));
   },
 

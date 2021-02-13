@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./style.css";
 import SearchForm from "../SearchForm";
 import SearchCard from "../SearchCard";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 
 
 function SearchContainer() {
@@ -26,9 +26,9 @@ function SearchContainer() {
         fetch(`https://www.googleapis.com/books/v1/volumes?q=title:${query}`)
         .then((res) => {
              return res.json();
+
         })
         .then((data) => {
-         
             let newArray = data.items.map((book) => ({
                 _id: book.id,
                 title: book.volumeInfo.title,
@@ -38,41 +38,28 @@ function SearchContainer() {
                 link: book.volumeInfo.infoLink
             }));
 
-            console.log(newArray)
-            console.log(typeof(newArray))
-
-            return newArray;
-            // setSearchResult(newObject);
-        
+            setSearchResult(newArray);
 
         })
-        .then((res) => {
-            setSearchResult(res);
-            console.log(searchResult);
-        })
+
         .catch(err => console.log(err));
       };
 
   return (
-    
-    <React.Fragment>
-        <SearchForm handleSearch={ handleSearch }/> 
-            <section className="container" id="search">
-                <div className="row">
-                    <div className="results col-12">
-                        <h2>Results</h2>
-                        <hr/>
-                            {searchResult.map(book => <SearchCard {...book} />)
-                            }
+        <React.Fragment>
+            <SearchForm handleSearch={ handleSearch }/> 
+                <section className="container" id="search">
+                    <div className="row">
+                        <div className="results col-12">
+                            <h2>Results</h2>
+                            <hr/>
+                                {searchResult.map(book => <SearchCard {...book} />)
+                                }
+                        </div>
                     </div>
-                </div>
-            </section>
-    </ React.Fragment>
-
-          
-    
+                </section>
+        </ React.Fragment>
     )
-    
 }
 
 export default SearchContainer;

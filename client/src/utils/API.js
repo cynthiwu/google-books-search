@@ -4,7 +4,7 @@ export default {
 
   // Serach for books with Google Books API
   searchBooks: function(query) {
-    return axios.get(`https://www.googleapis.com/books/v1/volumes?q=title:${query}`).then(result => console.log(result));
+    return axios.get(`https://www.googleapis.com/books/v1/volumes?q=title:${query}`);
   },
 
   // Gets all saved books

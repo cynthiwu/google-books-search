@@ -27,22 +27,23 @@ function SearchContainer() {
         .then((res) => {
              return res.json();
         })
-        .then((res) => {
+        .then((data) => {
          
-            let newObject = res.items.map(item => {
-                return {
-                _id: item.id,
-                title: item.volumeInfo.title,
-                authors: item.volumeInfo.authors,
-                description: item.volumeInfo.description,
-                image: item.volumeInfo.imageLinks?.thumbnail || "No thumbnail",
-                link: item.volumeInfo.infoLink
-                }
-            });
+            let newArray = data.items.map((book) => ({
+                _id: book.id,
+                title: book.volumeInfo.title,
+                authors: book.volumeInfo.authors,
+                description: book.volumeInfo.description,
+                image: book.volumeInfo.imageLinks?.thumbnail || "No thumbnail",
+                link: book.volumeInfo.infoLink
+            }));
 
-            return newObject;
+            console.log(newArray)
+            console.log(typeof(newArray))
+
+            return newArray;
             // setSearchResult(newObject);
-            // console.log(searchResult);
+        
 
         })
         .then((res) => {
@@ -61,14 +62,12 @@ function SearchContainer() {
                     <div className="results col-12">
                         <h2>Results</h2>
                         <hr/>
-                            {/* <SearchCard />  */}
-
-                            {searchResult.map(item => {<SearchCard {...item} />})
+                            {searchResult.map(book => <SearchCard {...book} />)
                             }
                     </div>
                 </div>
             </section>
-        </ React.Fragment>
+    </ React.Fragment>
 
           
     

@@ -2,7 +2,7 @@ import React from "react";
 
 // To add props
 function SearchCard(props) {
-    return <div className="card">
+    return <div className="card" key={props.id}>
                 <h3 className="card-title ml-3 mt-3">{props.title}</h3>
                 <h5 className="card-author ml-3">{props.authors}</h5>
                 

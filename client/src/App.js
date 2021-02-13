@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
-import SearchContainer from "./components/SearchContainer";
-import SavedContainer from "./components/SavedContainer";
+import SearchContainer from "./pages/SearchContainer";
+import SavedContainer from "./pages/SavedContainer";
 import NoMatch from "./components/NoMatch";
 
 

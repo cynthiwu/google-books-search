@@ -1,16 +1,16 @@
 import React from "react";
 
 // To add props
-function SavedCard() {
-    return <div className="card">
-                <h3 className="card-title ml-3 mt-3">Book Title</h3>
-                <h5 className="card-author ml-3">Author Name</h5>
+function SavedCard(props) {
+    return <div className="card" key={props.id}>
+                <h3 className="card-title ml-3 mt-3">{props.title}</h3>
+                <h5 className="card-author ml-3">{props.authors}</h5>
     
                 <span className="card-body">
-                    <img className="thumbnail float-left" src="http://books.google.com/books/content?id=53Tv9BaNjGoC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"/>
-                    <p className="float-left ml-4">Synopsis of book</p>
+                    <img className="thumbnail float-left" src={process.env.PUBLIC_URL + props.image}/>
+                    <p className="float-left ml-4">{props.description}</p>
                     <div className="float-right">
-                        <button type="button" class="btn btn-info m-1">View</button>
+                        <a type="button" className="btn btn-info m-1" href={props.link} target="_blank">View</a>
                         <button type="button" class="btn btn-danger m-1">Delete</button>
                     </div>
                 </span>

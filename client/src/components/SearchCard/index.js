@@ -10,8 +10,8 @@ function SearchCard(props) {
                     <img className="thumbnail float-left" src={process.env.PUBLIC_URL + props.image}/>
                     <p className="description float-left ml-4">{props.description}</p>
                     <div className=" buttons float-left">
-                    <button type="button" className="btn btn-info m-1">View</button>
-                    <button type="button" className="btn btn-success m-1">Save</button>
+                    <button type="button" className="btn btn-info m-1" href={props.link} target="_blank">View</button>
+                    <button type="button" className="btn btn-success m-1" onClick={() => props.handleSave({props})}>Save</button>
                     </div>
                 </span>
         </div>

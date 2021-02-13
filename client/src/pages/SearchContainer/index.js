@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import "./style.css";
-import SearchForm from "../SearchForm";
-import SearchCard from "../SearchCard";
-// import API from "../../utils/API";
+import SearchForm from "../../components/SearchForm";
+import SearchCard from "../../components/SearchCard";
+import API from "../../utils/API";
 
 
 function SearchContainer() {
@@ -44,6 +44,14 @@ function SearchContainer() {
 
         .catch(err => console.log(err));
       };
+    
+function handleSave(bookData) {
+    console.log(bookData);
+
+    // API.saveBook(bookData.props);
+
+    // Add way to delete saved book from the search list in state so it disappears.
+}
 
   return (
         <React.Fragment>
@@ -53,7 +61,8 @@ function SearchContainer() {
                         <div className="results col-12">
                             <h2>Results</h2>
                             <hr/>
-                                {searchResult.map(book => <SearchCard {...book} />)
+                                {searchResult.map(book => <SearchCard {...book} handleSave = {handleSave
+                                }/>)
                                 }
                         </div>
                     </div>

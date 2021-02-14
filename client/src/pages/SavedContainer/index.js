@@ -20,9 +20,15 @@ function SavedContainer() {
     }, []);
 
     function handleDelete(bookId) {
-    
-        // API.deleteBook(bookData.props);
-        // Filter out deleted book and re-save state with new array. 
+        
+        let deletedBook = savedBooks.filter(book => book._id === bookId);
+        console.log(deletedBook[0]._id);
+        API.deleteBook(deletedBook[0]._id)
+        .catch(err => console.error(err));
+
+        let filteredBooks = savedBooks.filter(book => book._id !== bookId)
+        setSavedBooks(filteredBooks);
+        console.log(filteredBooks);
     
     }
 
@@ -35,7 +41,10 @@ function SavedContainer() {
                         <div className="col-xs-12 col-sm-8 col-md-12 p-4">
                             <h2>Saved Books</h2>
                             <hr/>
-                            <SavedCard />
+                            {savedBooks.map(book => <SavedCard key={book._id} {...book} handleDelete = { handleDelete
+                                }/>)
+                            }
+
                         </div>
                     </section>
                 </main>

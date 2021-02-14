@@ -11,7 +11,7 @@ function SavedCard(props) {
                     <p className="float-left ml-4">{props.description}</p>
                     <div className="float-right">
                         <a type="button" className="btn btn-info m-1" href={props.link} target="_blank">View</a>
-                        <button type="button" class="btn btn-danger m-1">Delete</button>
+                        <button type="button" class="btn btn-danger m-1" onClick={() => props.handleDelete(props._id)}>Delete</button>
                     </div>
                 </span>
             </div>

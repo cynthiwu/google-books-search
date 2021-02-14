@@ -1,4 +1,9 @@
 .description {
-  display: inline-block;
-  width: 60%;
+  margin: 10px;
+}
+
+.buttons {
+  display: block;
+  margin: 0;
+  padding: 0;
 }

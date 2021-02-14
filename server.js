@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const mongoose = require("mongoose");
 
 // Defining middleware 
 app.use(express.urlencoded({ extended: true }));
@@ -19,7 +20,7 @@ mongoose.connect(
   );
 
 // API routes
-app.use("/api", apiRoutes);
+app.use("/", require("./routes"));
 
 // Send every other request to the React app
 app.get("*", (req, res) => {

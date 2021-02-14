@@ -17,18 +17,19 @@ function SearchContainer() {
         console.log(query)
 
         // Why doesn't this work????
-        // API.searchBooks(query)
+        API.searchBooks(query)
         
         // .then((res) => {
         //     return res.json();
         // })
 
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=title:${query}`)
-        .then((res) => {
-             return res.json();
+        // fetch(`https://www.googleapis.com/books/v1/volumes?q=title:${query}`)
+        // .then((res) => {
+        //      return res.json();
 
-        })
-        .then((data) => {
+        // })
+        .then(({ data }) => {
+            console.log(data);
             let newArray = data.items.map((book) => ({
                 _id: book.id,
                 title: book.volumeInfo.title,
@@ -45,10 +46,13 @@ function SearchContainer() {
         .catch(err => console.log(err));
       };
     
-function handleSave(bookData) {
-    console.log(bookData);
+function handleSave(bookID) {
+    console.log(bookID);
 
-    // API.saveBook(bookData.props);
+    let savedBook = searchResult.find(book => book._id === bookID);
+    API.saveBook(savedBook)
+    .then(() => console.log("Storing book"))
+    .catch(err => console.error(err));
 
     // Add way to delete saved book from the search list in state so it disappears.
 }
@@ -61,7 +65,7 @@ function handleSave(bookData) {
                         <div className="results col-12">
                             <h2>Results</h2>
                             <hr/>
-                                {searchResult.map(book => <SearchCard {...book} handleSave = {handleSave
+                                {searchResult.map(book => <SearchCard key={book._id} {...book} handleSave = {handleSave
                                 }/>)
                                 }
                         </div>

@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 
-// Defining middleware 
+// Defining middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -14,10 +14,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to the Mongo DB
-mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/googlebooks",
-    { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
-  );
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+});
 
 // API routes
 app.use("/", require("./routes"));

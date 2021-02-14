@@ -2,31 +2,31 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const bookSchema = new mongoose.Schema({
-// title of the book as returned by Google API
+  // title of the book as returned by Google API
   title: {
     type: String,
-    required: true
+    required: true,
   },
-// author(s) of the book as returned by Google API
+  // author(s) of the book as returned by Google API
   authors: {
     type: [String],
-    default: ""
+    default: "",
   },
-// description of the book as returned by Google API
+  // description of the book as returned by Google API
   description: {
     type: String,
-    default: ""
+    default: "",
   },
-// the book's thumbnail image as returned by Google API
+  // the book's thumbnail image as returned by Google API
   image: {
     type: String,
-    default: ""
+    default: "",
   },
   // the book's information of link as returned by Google API
   link: {
     type: String,
     default: "",
-  }
+  },
 });
 
 const Book = mongoose.model("Book", bookSchema);

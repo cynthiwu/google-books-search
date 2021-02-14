@@ -6,9 +6,6 @@ import SearchContainer from "./pages/SearchContainer";
 import SavedContainer from "./pages/SavedContainer";
 import NoMatch from "./components/NoMatch";
 
-
-
-
 function App() {
   return (
     <Router>
@@ -28,7 +25,7 @@ function App() {
         </Switch>
       </React.Fragment>
     </Router>
-  )
+  );
 }
 
 export default App;

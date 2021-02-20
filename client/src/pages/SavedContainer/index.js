@@ -10,10 +10,19 @@ function SavedContainer() {
 
   // Pulling saved books from the database and setting them to state.
   useEffect(() => {
-    API.getBooks().then((savedBook) => {
-      setSavedBooks(savedBook);
-    });
+    loadBooks();
   }, []);
+
+  const loadBooks = () => {
+    API.getBooks()
+      .then((books) => {
+        setSavedBooks(books);
+        console.log(savedBooks);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   // Function to handle a delete request.
   function handleDelete(bookId) {

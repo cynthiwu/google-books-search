@@ -23,14 +23,14 @@ function SearchCard(props) {
               </Col>
               <Col sm="3">
                 <div className=" buttons">
-                  <button
+                  <a
                     type="button"
                     className="btn btn-info m-1"
                     href={props.link}
                     target="_blank"
                   >
                     View
-                  </button>
+                  </a>
                   <button
                     type="button"
                     className="btn btn-success m-1"

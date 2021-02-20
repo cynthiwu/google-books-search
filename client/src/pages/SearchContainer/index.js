@@ -31,7 +31,7 @@ function SearchContainer() {
       .catch((err) => console.log(err));
   }
 
-  // Fuunction to handle a save request from the user.
+  // Function to handle a save request from the user.
   function handleSave(bookID) {
     console.log(bookID);
 

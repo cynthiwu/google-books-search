@@ -29,10 +29,12 @@ function SavedContainer() {
     let deletedBook = savedBooks.filter((book) => book._id === bookId);
     API.deleteBook(deletedBook[0]._id)
       .then(() => {
-        let filteredBooks = savedBooks.filter((book) => book._id !== bookId);
-        setSavedBooks(filteredBooks);
+        console.log("Deleting book");
       })
       .catch((err) => console.error(err));
+
+    let filteredBooks = savedBooks.filter((book) => book._id !== bookId);
+    setSavedBooks(filteredBooks);
   }
 
   return (

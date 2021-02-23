@@ -40,10 +40,11 @@ function SearchContainer() {
     API.saveBook(savedBook)
       .then(() => {
         console.log("Storing book");
-        let filteredBooks = searchResult.filter((book) => book._id !== bookID);
-        setSearchResult(filteredBooks);
       })
       .catch((err) => console.error(err));
+
+    let filteredBooks = searchResult.filter((book) => book._id !== bookID);
+    setSearchResult(filteredBooks);
   }
 
   return (

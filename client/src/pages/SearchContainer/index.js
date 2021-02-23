@@ -21,9 +21,10 @@ function SearchContainer() {
         let newArray = data.items.map((book) => ({
           _id: book.id,
           title: book.volumeInfo.title,
-          authors: book.volumeInfo.authors,
-          description: book.volumeInfo.description,
-          image: book.volumeInfo.imageLinks?.thumbnail || "No thumbnail",
+          authors: book.volumeInfo.authors || "No authors listed",
+          description: book.volumeInfo.description || "No description listed",
+          image:
+            book.volumeInfo.imageLinks?.thumbnail || "No thumbnail included",
           link: book.volumeInfo.infoLink,
         }));
         setSearchResult(newArray);
@@ -37,11 +38,12 @@ function SearchContainer() {
 
     let savedBook = searchResult.find((book) => book._id === bookID);
     API.saveBook(savedBook)
-      .then(() => console.log("Storing book"))
+      .then(() => {
+        console.log("Storing book");
+        let filteredBooks = searchResult.filter((book) => book._id !== bookID);
+        setSearchResult(filteredBooks);
+      })
       .catch((err) => console.error(err));
-
-    let filteredBooks = searchResult.filter((book) => book._id !== bookID);
-    setSearchResult(filteredBooks);
   }
 
   return (

@@ -27,10 +27,12 @@ function SavedContainer() {
   // Function to handle a delete request.
   function handleDelete(bookId) {
     let deletedBook = savedBooks.filter((book) => book._id === bookId);
-    API.deleteBook(deletedBook[0]._id).catch((err) => console.error(err));
-
-    let filteredBooks = savedBooks.filter((book) => book._id !== bookId);
-    setSavedBooks(filteredBooks);
+    API.deleteBook(deletedBook[0]._id)
+      .then(() => {
+        let filteredBooks = savedBooks.filter((book) => book._id !== bookId);
+        setSavedBooks(filteredBooks);
+      })
+      .catch((err) => console.error(err));
   }
 
   return (

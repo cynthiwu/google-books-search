@@ -2,7 +2,7 @@
 
 Explore the [project page](https://github.com/cynthiwu/google-books-search)
 
-View it live on [GitHub Pages](https://cw-google-books-search-react.herokuapp.com/)
+View it live on [Heroku](https://rocky-fjord-52421.herokuapp.com/)
 
 ## Table of Contents
 
@@ -96,4 +96,4 @@ Cynthia Wu - [@cynthia21wu](https://twitter.com/cynthia21wu) - cynthia21wu@gmail
 
 Project Link: [https://github.com/cynthiwu/google-books-search](https://github.com/cynthiwu/google-books-search)
 
-Live Link: [https://cw-google-books-search-react.herokuapp.com/](https://cw-google-books-search-react.herokuapp.com/)
+Live Link: [https://rocky-fjord-52421.herokuapp.com/](https://rocky-fjord-52421.herokuapp.com/)
